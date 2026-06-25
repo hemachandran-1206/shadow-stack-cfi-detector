@@ -49,8 +49,8 @@ Every violation is logged to `cfi_shadow.log` and structured into `cfi_report.js
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/hemachandran-1206/cfi-shield.git
-cd cfi-shield
+git clone https://github.com/hemachandran-1206/shadow-stack-cfi-detector.git
+cd shadow-stack-cfi-detector
 ```
 
 ### 2. Download and extract Intel Pin
@@ -64,7 +64,7 @@ tar -xzf pin-external-4.2-99776-g21d818fa2-gcc-linux.tar.gz
 ### 3. Build the Pin tool
 
 ```bash
-cd /path/to/cfi-shield
+cd /path/to/shadow-stack-cfi-detector
 make
 ```
 
@@ -114,7 +114,7 @@ Every `CALL` instruction pushes the return address onto a per-thread shadow stac
 ## Project architecture
 
 ```
-cfi-shield/
+shadow-stack-cfi-detector/
 ├── pintool/
 │   ├── MyPinTool.cpp        # Core Pin tool — shadow stack + CFI enforcement
 │   ├── makefile             # Build config (points to Pin kit)
@@ -161,7 +161,7 @@ export PIN=~/Documents/pin_kit/pin-external-4.2-99776-g21d818fa2-gcc-linux/pin
 ### Run against a single binary
 
 ```bash
-cd cfi-shield
+cd shadow-stack-cfi-detector
 rm -f cfi_report.json cfi_shadow.log
 $PIN -t obj-intel64/MyPinTool.so -- ./vuln_ret_overwrite
 cat cfi_shadow.log
