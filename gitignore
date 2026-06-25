@@ -1,0 +1,30 @@
+# Compiled Pin tool
+obj-intel64/
+
+# Compiled binaries
+cfi_demo
+shadow_demo
+vuln1
+vuln2
+vuln3
+vuln4
+vuln_ret_overwrite
+vuln_uaf
+vuln_heapspray
+vuln_thread
+
+# Runtime outputs (regenerated each run)
+cfi_shadow.log
+cfi_report.json
+
+# Pin kit (too large to commit)
+pin-external*/
+pin_kit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc

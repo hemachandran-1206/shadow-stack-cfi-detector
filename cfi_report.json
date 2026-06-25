@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "shadow_stack_violations": 0,
+    "cfi_violations": 1,
+    "total_violations": 1,
+    "cfi_observed_targets": 1,
+    "exit_code": 0
+  },
+  "violations": [
+    {
+      "id": 1,
+      "type": "cfi_indirect",
+      "severity": "HIGH",
+      "thread_id": 1,
+      "symbol": "evil_work",
+      "target": "0x4011f0",
+      "callsite": "0x40124d",
+      "attack_description": "Indirect call hijack — a function pointer or vtable entry was overwritten (via buffer overflow, use-after-free, or type confusion) to redirect an indirect call to an attacker-controlled target",
+      "fix_suggestion": "Use smart pointers (unique_ptr/shared_ptr) to prevent use-after-free. Mark vtables const. Enable -fsanitize=cfi at compile time for fine-grained CFI enforcement."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[IMAGE] Main exe: 0x400000 - 0x4021c3
+[FUNC ENTRY] 0x401000 (_init)
+[FUNC ENTRY] 0x401020 (.plt)
+[FUNC ENTRY] 0x401090 (.plt.sec)
+[FUNC ENTRY] 0x4010f0 (_start)
+[FUNC ENTRY] 0x401120 (_dl_relocate_static_pie)
+[FUNC ENTRY] 0x401130 (deregister_tm_clones)
+[FUNC ENTRY] 0x401160 (register_tm_clones)
+[FUNC ENTRY] 0x4011a0 (__do_global_dtors_aux)
+[FUNC ENTRY] 0x4011d0 (frame_dummy)
+[FUNC ENTRY] 0x4011d6 (legitimate_work)
+[FUNC ENTRY] 0x4011f0 (evil_work)
+[FUNC ENTRY] 0x40120a (thread_worker)
+[FUNC ENTRY] 0x401256 (thread_attacker)
+[FUNC ENTRY] 0x401299 (main)
+[FUNC ENTRY] 0x401384 (_fini)
+[PLT] .plt : 0x401020 - 0x401090
+[PLT] .plt.sec : 0x401090 - 0x4010f0
+[THREAD START] tid=0
+[CFI PROFILE] tid=0 call #1 target=0x4011d6 (legitimate_work)
+[CFI PROFILE] tid=0 call #2 target=0x4011d6 (legitimate_work)
+[CFI PROFILE] tid=0 call #3 target=0x4011d6 (legitimate_work)
+[CFI PROFILE] tid=0 call #4 target=0x4011d6 (legitimate_work)
+[CFI PROFILE] tid=0 call #5 target=0x4011d6 (legitimate_work)
+[CFI] Profile done. 1 targets recorded. Enforcing now.
+[THREAD START] tid=1
+[THREAD START] tid=2
+[CFI VIOLATION] tid=1
+  Target   : 0x4011f0
+  Callsite : 0x40124d
+  Symbol   : evil_work
+[THREAD END] tid=1
+[THREAD END] tid=2
+[THREAD END] tid=0
+
+========== SUMMARY ==========
+Shadow Stack Violations : 0
+CFI Violations          : 1
+CFI observed targets    : 1
+Exit code               : 0
+==============================
